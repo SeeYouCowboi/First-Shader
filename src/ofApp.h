@@ -20,5 +20,11 @@ class ofApp : public ofBaseApp{
 		void windowResized(int w, int h);
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
+
+		// ofMesh类为表示网格的类
+		// 创建一个triangle的ofMesh对象
+		ofMesh tri;
+		ofShader myShader;
 		
 };
+

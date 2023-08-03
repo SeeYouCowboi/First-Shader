@@ -23,5 +23,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="README.md" />
+    <None Include="bin\data\first_fragment.frag" />
+    <None Include="bin\data\first_vertex.vert" />
   </ItemGroup>
 </Project>
