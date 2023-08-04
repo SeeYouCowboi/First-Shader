@@ -23,8 +23,9 @@ class ofApp : public ofBaseApp{
 
 		// ofMesh类为表示网格的类
 		// 创建一个triangle的ofMesh对象
-		ofMesh tri;
+		//ofMesh tri;
 		ofShader myShader;
-		
+		ofMesh quad;
+
 };
 
