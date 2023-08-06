@@ -18,7 +18,12 @@ tri.addColor(ofFloatColor(0.0, 0.0, 1.0, 1.0));
 */
 
 void ofApp::setup() {
+
+	ofDisableArbTex();
+	img.load("Lenna.png");
+
 	// 定义正方形长成这样：
+	// ( 课本上正方形是画成这样但是它代码里面不是这个顺序=_=，所以这里的代码会和课本上的有所区别）
 	//	0 --------- 1
 	//  |         / |
 	//	|      /    |
@@ -30,11 +35,19 @@ void ofApp::setup() {
 	quad.addVertex(glm::vec3(-0.5, -0.5, 0));
 	quad.addVertex(glm::vec3(0.5, -0.5, 0));
 
+	/*
 	// ofDefaultColorType() 只能返回default颜色中的一种，并不是自定义颜色
 	quad.addColor(ofDefaultColorType(1, 0, 0, 1)); // red
 	quad.addColor(ofDefaultColorType(0, 1, 0, 1)); // green
 	quad.addColor(ofDefaultColorType(0, 0, 1, 1)); // blue
 	quad.addColor(ofDefaultColorType(1, 1, 1, 1)); // white
+	*/
+
+	// 纹理采用UV坐标，从左下角(0,0)向右上角增加到(1,1)
+	quad.addTexCoord(glm::vec2(0, 1));
+	quad.addTexCoord(glm::vec2(1, 1));
+	quad.addTexCoord(glm::vec2(0, 0));
+	quad.addTexCoord(glm::vec2(1, 0));
 
 	// 因为大多数游戏引擎都只有三角形面的网格所以如果需要绘制正方形就需要绘制两次三角形
 	// indices里定义了两个三角形的绘制方法：{0，1，2}和{1，2，3}
@@ -45,8 +58,8 @@ void ofApp::setup() {
 	// 那么就需要重新定义一个顶点
 	quad.addIndices(indices, 6);
 
-	// 加载顶点着色器和片元着色器，路径在bin/data下
-	myShader.load("first_vertex.vert", "first_fragment.frag");
+	// 加载UV颜色着色器
+	myShader.load("uv_passthrough.vert", "uv_vis.frag");
 }
 
 //--------------------------------------------------------------
@@ -57,6 +70,8 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw(){
 	myShader.begin();
+	// setUniformTexture将ofImage对象加载到着色器的统一变量中，同时转换为ofTexture对象
+	myShader.setUniformTexture("LennaTex", img, 0);
 	quad.draw();
 	myShader.end();
 }

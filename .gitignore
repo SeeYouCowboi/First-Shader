@@ -3,6 +3,8 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+
+
 # User-specific files
 *.rsuser
 *.suo
@@ -27,11 +29,14 @@ x86/
 [Aa][Rr][Mm]/
 [Aa][Rr][Mm]64/
 bld/
-[Bb]in/
+[Bb]in/*
 [Oo]bj/
 [Oo]ut/
 [Ll]og/
 [Ll]ogs/
+
+# 不把我的bin/data 里面的东西给ignore了
+!/bin/data/
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/
