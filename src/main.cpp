@@ -5,7 +5,7 @@
 int main( ){
 	// setup the GL context
 	ofGLWindowSettings glSettings;
-	glSettings.setSize(1024, 768);
+	glSettings.setSize(1024, 1024);
 	glSettings.windowMode = OF_WINDOW;
 	glSettings.setGLVersion(4, 1);
 	ofCreateWindow(glSettings);

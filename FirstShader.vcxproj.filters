@@ -25,5 +25,11 @@
     <None Include="README.md" />
     <None Include="bin\data\first_fragment.frag" />
     <None Include="bin\data\first_vertex.vert" />
+    <None Include="bin\data\uv_passthrough.vert" />
+    <None Include="bin\data\uv_vis.frag" />
+    <None Include="bin\data\.gitkeep" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="bin\data\Lenna.png" />
   </ItemGroup>
 </Project>

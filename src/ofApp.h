@@ -26,6 +26,7 @@ class ofApp : public ofBaseApp{
 		//ofMesh tri;
 		ofShader myShader;
 		ofMesh quad;
+		ofImage img;
 
 };
 
